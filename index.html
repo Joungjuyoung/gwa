@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>소비세 계산</title>
+</head>
+<body>
+    <h2>소비세 계산</h2>
+    <div id = "app">
+        <input v-model.number="price" type="number">원
+        <input v-model.number="count" type="number">
+        <p>총금액 : {{ total }}</p>
+        <p>소비세 포함 금액 {{ texCompute }}원</p>
+    </div>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                price: 100,
+                count: 1
+            },
+            computed:{
+                total: function(){
+                    return this.price * this.count
+                },
+                texCompute : function(){
+                    return this.price * this.count * 1.08
+                }
+            }
+        })
+    </script>
+</body>
+</html>
